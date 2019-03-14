@@ -13,26 +13,34 @@
   width: 40px;
   border-radius: 50%;
 }
-.card-category {
+.card-date {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0.5em;
+  left: 0.5em;
   font-size: 15px;
   text-transform: uppercase;
 }
-.card-description {
+.card-name {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  top: 2em;
+  left: 0.5em;
 }
-.card-description h2 {
+.card-name h2 {
   font-size: 24px;
 }
-.card-description p {
+.card-name p {
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
 }
+
+.card-events {
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+}
+
+
 .card-link {
   position: absolute;
   top: 0;
