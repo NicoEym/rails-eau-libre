@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <% @swim_races.each do |swim_race| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= swim_race.image_url %>);">
+          <div class="card-category"><%= swim_race.dates %></div>
+          <div class="card-description">
+            <h2><%= swim_race.name %></h2>
+            <p><%= swim_race.city_name %></p>
+            <% events = swim_race.swim_events %>
+            <ul class="list-inline">
+            <% events.each do |event| %>
+
+              <li class="list-inline-item"><%= event.distance %> km</li>
+
+            <% end %>
+            </ul>
+          </div>
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
