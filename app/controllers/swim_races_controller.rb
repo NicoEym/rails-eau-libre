@@ -5,4 +5,7 @@ class SwimRacesController < ApplicationController
     @swim_races = SwimRace.all
   end
 
+  def show
+    @swim_race = SwimRace.find(params[:id])
+  end
 end

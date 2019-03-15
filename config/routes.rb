@@ -5,7 +5,4 @@ Rails.application.routes.draw do
   resources :swim_races do
     resources :swim_race_events, only: [:show, :index]
   end
-
-
-
 end
