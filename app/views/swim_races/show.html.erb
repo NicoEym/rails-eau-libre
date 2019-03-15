@@ -1,6 +1,9 @@
 <div class="container">
   <p>voici le show de swim race <%= @swim_race.name %></p>
-
-
-
+  <p><%= @swim_race.city_name %></p>
+  <p><%= @swim_race.dates %></p>
+  <p><%= @swim_race.description %></p>
+  <p><%= @swim_race.longitude %></p>
+  <p><%= @swim_race.latitude %></p>
+  <%= link_to(@swim_race.source_url, @swim_race.source_url) %>
 </div>
