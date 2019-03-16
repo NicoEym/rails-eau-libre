@@ -5,6 +5,7 @@
     <%= f.input :description, label: 'Description'%>
     <%= f.input  :dates, as: :date, label: "Date de la course" %>
     <%= f.input  :source_url, label: "Site-web de la course" %>
+    <%= f.association  :swim_events, label_method: :distance, as: :check_boxes, label: "Epreuves:", html: { class: "form-check form-check-inline" } %>
     <%= f.submit "Créer ma course d'Eau Libre", class: "btn btn-primary" %>
   <% end %>
 </div>
