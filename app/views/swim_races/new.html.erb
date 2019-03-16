@@ -1,7 +1,14 @@
 <div class="container">
+  <h1>Créer votre course d'eau libre:</h1>
+  <br>
+
   <%= simple_form_for @swim_race  do |f| %>
-    <%= f.input :name, label: 'Nom de la course'%>
-    <%= f.input :city_name, label: "Ville" %>
+    <div class="form-row">
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :name, label: 'Nom de la course'%>
+        <%= f.input :city_name, label: "Ville" %>
+      </div>
+    </div>
     <%= f.input :description, label: 'Description'%>
     <%= f.input  :dates, as: :date, label: "Date de la course" %>
     <%= f.input  :source_url, label: "Site-web de la course" %>
