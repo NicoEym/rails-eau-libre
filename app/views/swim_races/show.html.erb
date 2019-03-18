@@ -5,5 +5,10 @@
   <p><%= @swim_race.description %></p>
   <p><%= @swim_race.longitude %></p>
   <p><%= @swim_race.latitude %></p>
-  <%= link_to(@swim_race.source_url, @swim_race.source_url) %>
+  <p> <%= link_to(@swim_race.source_url, @swim_race.source_url) %> </p>
+
+  <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(@swim_race),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  </button>
 </div>
