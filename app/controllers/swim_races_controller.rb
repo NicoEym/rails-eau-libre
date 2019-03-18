@@ -12,11 +12,23 @@ class SwimRacesController < ApplicationController
   end
 
   def index
-    @swim_races = SwimRace.all
+    @swim_races = SwimRace.where.not(latitude: nil, longitude: nil)
+
+    @markers = @swim_races.map do |swim_race|
+      {
+        lat: swim_race.latitude,
+        lng: swim_race.longitude
+      }
+    end
   end
 
   def show
     @swim_race = SwimRace.find(params[:id])
+    @markers =
+      {
+        lat: @swim_race.latitude,
+        lng: @swim_race.longitude
+      }
   end
 
   def edit
