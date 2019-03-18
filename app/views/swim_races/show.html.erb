@@ -1,5 +1,6 @@
 <div class="container">
   <p><%= @swim_race.name %></p>
+  <%= cl_image_tag @swim_race.photo, height: 300, width: 400, crop: :fill %>
   <p>Ville: <%= @swim_race.city_name %></p>
   <p>Date de la course: <%= @swim_race.dates %></p>
   <p>Description: <%= @swim_race.description %></p>

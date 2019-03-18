@@ -38,6 +38,6 @@ class SwimRacesController < ApplicationController
   private
 
   def swim_race_params
-    params.require(:swim_race).permit(:name, :city_name, :description, :dates, :source_url, :swim_events)
+    params.require(:swim_race).permit(:name, :city_name, :description, :dates, :source_url, :photo, :swim_events)
   end
 end
