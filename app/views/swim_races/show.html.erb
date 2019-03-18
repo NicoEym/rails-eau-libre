@@ -1,12 +1,22 @@
 <div class="container">
-  <p>voici le show de swim race <%= @swim_race.name %></p>
-  <p><%= @swim_race.city_name %></p>
-  <p><%= @swim_race.dates %></p>
-  <p><%= @swim_race.description %></p>
+  <p><%= @swim_race.name %></p>
+  <p>Ville: <%= @swim_race.city_name %></p>
+  <p>Date de la course: <%= @swim_race.dates %></p>
+  <p>Description: <%= @swim_race.description %></p>
   <p><%= @swim_race.longitude %></p>
   <p><%= @swim_race.latitude %></p>
-  <p> <%= link_to(@swim_race.source_url, @swim_race.source_url) %> </p>
+  <p>Site internet de l'organisateur: <%= link_to(@swim_race.source_url, @swim_race.source_url) %> </p>
 
+  <p>Epreuves:</p>
+  <% events = @swim_race.swim_events %>
+  <ul class="list-inline">
+    <% events.each do |event| %>
+      <li class="list-inline-item"><%= event.distance %> km</li>
+    <% end %>
+  </ul>
+
+  <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(@swim_race) %>
+  </button>
   <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(@swim_race),
       method: :delete,
       data: { confirm: "Are you sure?" } %>

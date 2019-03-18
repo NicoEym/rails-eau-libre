@@ -1,5 +1,5 @@
 class SwimRacesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :show, :index, :destroy]
+  skip_before_action :authenticate_user!, only: [:new, :create, :show, :index, :destroy, :edit, :update]
 
   def new
     @swim_race = SwimRace.new
@@ -19,6 +19,16 @@ class SwimRacesController < ApplicationController
     @swim_race = SwimRace.find(params[:id])
   end
 
+  def edit
+    @swim_race = SwimRace.find(params[:id])
+  end
+
+  def update
+    @swim_race = SwimRace.find(params[:id])
+    @swim_race.update(swim_race_params)
+    redirect_to swim_race_path(@swim_race)
+  end
+
   def destroy
     @swim_race = SwimRace.find(params[:id])
     @swim_race.destroy
@@ -30,5 +40,4 @@ class SwimRacesController < ApplicationController
   def swim_race_params
     params.require(:swim_race).permit(:name, :city_name, :description, :dates, :source_url, :swim_events)
   end
-
 end

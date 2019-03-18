@@ -2,19 +2,7 @@
   <h1>Créer votre course d'eau libre:</h1>
   <br>
 
-  <%= simple_form_for @swim_race  do |f| %>
-    <div class="form-row">
-      <div class="col-xs-12 col-md-4">
-        <%= f.input :name, label: 'Nom de la course'%>
-        <%= f.input :city_name, label: "Ville" %>
-      </div>
-    </div>
-    <%= f.input :description, label: 'Description'%>
-    <%= f.input  :dates, as: :date, label: "Date de la course" %>
-    <%= f.input  :source_url, label: "Site-web de la course" %>
-    <%= f.association  :swim_events, label_method: :distance, as: :check_boxes, label: "Epreuves:", html: { class: "form-check form-check-inline" } %>
-    <%= f.submit "Créer ma course d'Eau Libre", class: "btn btn-primary" %>
-  <% end %>
+  <%= render 'shared/form', swim_race: @swim_race %>
 </div>
 
 
