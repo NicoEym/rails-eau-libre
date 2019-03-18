@@ -8,7 +8,7 @@ class SwimRacesController < ApplicationController
   def create
     @swim_race = SwimRace.new(swim_race_params)
     @swim_race.save
-    redirect_to swim_race_path(@swim_race)
+    redirect_to new_swim_race_swim_race_event_path(@swim_race)
   end
 
   def index
@@ -26,7 +26,7 @@ class SwimRacesController < ApplicationController
   def update
     @swim_race = SwimRace.find(params[:id])
     @swim_race.update(swim_race_params)
-    redirect_to swim_race_path(@swim_race)
+    redirect_to edit_swim_race_swim_race_event_path(@swim_race)
   end
 
   def destroy
