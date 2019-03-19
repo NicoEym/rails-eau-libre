@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_110157) do
+ActiveRecord::Schema.define(version: 2019_03_19_172711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,17 +19,10 @@ ActiveRecord::Schema.define(version: 2019_03_18_110157) do
     t.float "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "swim_race_events", force: :cascade do |t|
-    t.bigint "swim_race_id"
-    t.bigint "swim_event_id"
     t.float "price"
-    t.string "equipment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["swim_event_id"], name: "index_swim_race_events_on_swim_event_id"
-    t.index ["swim_race_id"], name: "index_swim_race_events_on_swim_race_id"
+    t.text "comment"
+    t.bigint "swim_race_id"
+    t.index ["swim_race_id"], name: "index_swim_events_on_swim_race_id"
   end
 
   create_table "swim_races", force: :cascade do |t|
@@ -57,6 +50,5 @@ ActiveRecord::Schema.define(version: 2019_03_18_110157) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "swim_race_events", "swim_events"
-  add_foreign_key "swim_race_events", "swim_races"
+  add_foreign_key "swim_events", "swim_races"
 end
