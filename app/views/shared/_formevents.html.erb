@@ -1,0 +1,12 @@
+<%= simple_form_for [@swim_race, @swim_race_event]  do |f| %>
+  <div id="duplicater0">
+    <h5>Epreuve:</h5>
+    <div class="form-distance" >
+      <%= f.association :swim_event, label_method: :distance, value_method: :id, label: 'Distance (km):' %>
+      <%= f.input :price, label: 'Price:'%>
+      <%= f.input :equipment, label: 'Equipement:'%>
+    </div>
+  </div>
+  <%= f.submit "Valider cette épreuve", class: "btn btn-primary" %>
+  <button id="add-distance" disabled> + Ajouter une épreuve</button>
+<% end %>
