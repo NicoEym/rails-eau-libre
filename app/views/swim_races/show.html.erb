@@ -24,11 +24,16 @@
 
   <p>Epreuves:</p>
   <% events = @swim_race.swim_events %>
-    <ul class="list-inline">
-      <% events.each do |event| %>
-        <li class="list-inline-item"><%= event.distance %> km</li>
-      <% end %>
-    </ul>
+  <% events.each do |event| %>
+    <div>
+      <p><%= event.distance %> km</p>
+      <p><%= event.price %> euros</p>
+      <p><%= event.comment %></p>
+      <%= link_to "Supprimer cette course", swim_race_swim_event_path(@swim_race, event),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
 
     <button class="btn btn-secondary"><%= link_to "Ajouter des courses",  new_swim_race_swim_event_path(@swim_race) %>
     </button>
