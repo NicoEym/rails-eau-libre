@@ -1,7 +1,27 @@
 <div class="container">
   <h1>Editer les épreuves de votre course d'eau libre <%= @swim_race.name %>:</h1>
   <br>
-
-  <%= render 'shared/formevents', swim_race: @swim_race %>
-
+  <% if @swim_events.length == 0  %>
+    <%= simple_form_for [@swim_race, @swim_event], html: { id: :form_new_event1, class: "form-event"}  do |f| %>
+        <h5>Epreuve:</h5>
+        <div class="form-distance" >
+          <%= f.input :distance, label: 'Distance (km):' %>
+          <%= f.input :price, label: 'Price:'%>
+          <%= f.input :comment, label: 'Equipement:'%>
+        </div>
+      <% end %>
+  <% else  %>
+    <%=  @swim_events.each do |swim_event| %>
+      <%= simple_form_for [@swim_race, swim_event], html: { id: :form_new_event1, class: "form-event"}  do |f| %>
+        <h5>Epreuve:</h5>
+        <div class="form-distance" >
+          <%= f.input :distance, label: 'Distance (km):' %>
+          <%= f.input :price, label: 'Price:'%>
+          <%= f.input :comment, label: 'Equipement:'%>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <button id="add-distance" class="btn btn-lg btn-secondary">+ Ajouter une épreuve</button>
+  <button id="submit-form" class="btn btn-lg btn-primary">Valider ces épreuves</button>
 </div>

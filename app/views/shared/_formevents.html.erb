@@ -1,12 +1,11 @@
-<div class="container">
-  <%= simple_form_for [@swim_race, @swim_event], html: { id: :form_new_event1 }  do |f| %>
-    <h5>Epreuve:</h5>
-    <div class="form-distance" >
-      <%= f.input :distance, label: 'Distance (km):' %>
-      <%= f.input :price, label: 'Price:'%>
-      <%= f.input :comment, label: 'Equipement:'%>
-    </div>
-  <% end %>
-  <button id="add-distance" class="btn btn-lg btn-secondary">+ Ajouter une épreuve</button>
-  <button id="submit-form" class="btn btn-lg btn-primary">Valider cette épreuve</button>
-</div>
+
+<%= simple_form_for [@swim_race, @swim_event], html: { id: :form_new_event1, class: "form-event" }  do |f| %>
+  <h5>Epreuve:</h5>
+  <div class="form-distance" >
+    <%= f.input :distance, label: 'Distance (km):' %>
+    <%= f.input :price, label: 'Price:'%>
+    <%= f.input :comment, label: 'Equipement:'%>
+  </div>
+<% end %>
+<button id="add-distance" class="btn btn-lg btn-secondary">+ Ajouter une épreuve</button>
+<button id="submit-form" class="btn btn-lg btn-primary">Valider ces épreuves</button>
