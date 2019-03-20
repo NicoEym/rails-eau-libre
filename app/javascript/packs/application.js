@@ -2,8 +2,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
-import { addDistance} from '../components/add_distance';
+import { addDistance, submitLastForm } from '../components/add_distance';
 
 initMapbox();
 initAutocomplete();
 addDistance();
+submitLastForm();
