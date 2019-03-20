@@ -15,6 +15,13 @@
   <p><%= @swim_race.latitude %></p>
   <p>Site internet de l'organisateur: <%= link_to(@swim_race.source_url, @swim_race.source_url) %> </p>
 
+  <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(@swim_race) %>
+  </button>
+  <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(@swim_race),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  </button>
+
   <p>Epreuves:</p>
   <% events = @swim_race.swim_events %>
     <ul class="list-inline">
@@ -22,10 +29,10 @@
         <li class="list-inline-item"><%= event.distance %> km</li>
       <% end %>
     </ul>
-  <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(@swim_race) %>
-  </button>
-  <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(@swim_race),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  </button>
+
+    <button class="btn btn-secondary"><%= link_to "Ajouter des courses",  new_swim_race_swim_event_path(@swim_race) %>
+    </button>
+    <button class="btn btn-warning"><%= link_to "Modifier supprimer des courses", edit_swim_race_swim_event_path(@swim_race) %>
+    </button>
+
 </div>

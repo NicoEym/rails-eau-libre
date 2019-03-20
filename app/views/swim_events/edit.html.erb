@@ -2,7 +2,7 @@
   <h1>Editer les épreuves de votre course d'eau libre <%= @swim_race.name %>:</h1>
   <br>
   <% if @swim_events.length == 0  %>
-    <%= simple_form_for [@swim_race, @swim_event], html: { id: :form_new_event1, class: "form-event"}  do |f| %>
+    <%= simple_form_for [@swim_race, @swim_event], html: { id: :form_new_event}  do |f| %>
         <h5>Epreuve:</h5>
         <div class="form-distance" >
           <%= f.input :distance, label: 'Distance (km):' %>
@@ -12,7 +12,7 @@
       <% end %>
   <% else  %>
     <%=  @swim_events.each do |swim_event| %>
-      <%= simple_form_for [@swim_race, swim_event], html: { id: :form_new_event1, class: "form-event"}  do |f| %>
+      <%= simple_form_for [@swim_race, swim_event], html: { id: :form_new_event}  do |f| %>
         <h5>Epreuve:</h5>
         <div class="form-distance" >
           <%= f.input :distance, label: 'Distance (km):' %>

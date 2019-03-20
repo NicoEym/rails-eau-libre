@@ -19,19 +19,14 @@ class SwimEventsController < ApplicationController
   end
 
   def update
-    @swim_events = SwimEvent.where(swim_race_id: params[:swim_race_id])
-    if @swim_events.include? params[:id].to_i
-      binding.pry
-      @swim_event = SwimEvent.find(params[:id])
-      @swim_event.update(swim_event_params)
-    else
-      @swim_event = SwimEvent.new(swim_event_params)
-      @swim_event.swim_race = SwimRace.find(params[:swim_race_id])
-      binding.pry
-      @swim_event.save
-    end
-
+    @swim_event = SwimEvent.find(params[:id])
+    @swim_event.update(swim_event_params)
     # redirect_to edit_swim_race_swim_event_path(@swim_race)
+  end
+
+  def destroy
+    @swim_event = SwimEvent.find(params[:id])
+    @swim_event.destroy
   end
 
   private

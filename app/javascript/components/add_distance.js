@@ -1,8 +1,7 @@
-var i = 1;
-function submitAndDuplicate() {
-    var original = document.getElementById('form_new_event' + i);
+function duplicate() {
+    var original = document.querySelector('#form_new_event');
     var clone = original.cloneNode(true); // "deep" clone
-    clone.id = "form_new_event" + ++i; // there can only be one element with an ID
+    // clone.id = "form_new_event" + ++i; // there can only be one element with an ID
      // event handlers are not cloned
     original.insertAdjacentElement('afterend', clone);
 }
@@ -12,8 +11,7 @@ const addDistance = () => {
   if (addButton) {
     addButton.addEventListener('click', (e) => {
       e.preventDefault();
-      submitAndDuplicate();
-      console.log(i)
+      duplicate();
     });
   }
 }
@@ -22,12 +20,14 @@ const submitForms  = () => {
     const submitButton = document.getElementById('submit-form');
     if (submitButton) {
     submitButton.addEventListener('click', (e) => {
-      for (var n = 1; n <= i; n++) {
-        console.log("toto" + n)
-        var formEvent = document.getElementById('form_new_event' + n);
-        setTimeout(function(){ formEvent.submit(); }, n * 100);
-      }
-      setTimeout(function(){ window.location.replace("http://localhost:3000/swim_races/"); }, (i + 1) * 100);
+      var i = 1;
+      const formsEvent = document.querySelectorAll('#form_new_event');
+        formsEvent.forEach((form) => {
+            console.log("toto" + i)
+            setTimeout(function(){ form.submit(); }, i * 1000);
+            i = i + 1;
+          });
+      setTimeout(function(){ window.location.replace("http://localhost:3000/swim_races/"); }, i * 1000);
     });
   }
 }
