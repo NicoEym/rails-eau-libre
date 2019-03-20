@@ -20,7 +20,7 @@ class SwimEventsController < ApplicationController
 
   def update
     @swim_event = SwimEvent.find(params[:id])
-    @swim_event.update(swim_event_params)
+    @swim_event.update(swim_event_params) if @swim_event.distance != params[:distance] || @swim_event.price != params[:price] || @swim_event.comment != params[:comment]
     # redirect_to edit_swim_race_swim_event_path(@swim_race)
   end
 
