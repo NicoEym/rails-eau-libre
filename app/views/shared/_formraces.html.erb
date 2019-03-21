@@ -1,4 +1,4 @@
-<%= simple_form_for @swim_race  do |f| %>
+<%= simple_form_for @swim_race, html: { class: "form-new-race"}  do |f| %>
     <div class="col-xs-12 col-md-9">
       <%= f.input :name, label: 'Nom de la course:'%>
       <%= f.input :city_name, label: "Ville:" %>

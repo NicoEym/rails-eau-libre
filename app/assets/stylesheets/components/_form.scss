@@ -4,15 +4,14 @@
   align-items: center;
 }
 
-
-#form-new-event {
-  background-color: rgb(180, 180, 180);
+#form_new_event {
+  background-color: rgba(290,290,290, 0.6);
   border-radius: 1em;
   padding: 1em;
   margin-bottom: 1em;
 }
 
-#new_swim_race {
+.form-new-race {
   background-color: rgba(290,290,290, 0.6);
   border-radius: 1em;
   padding: 1em;
@@ -21,14 +20,26 @@
   align-items: center;
 }
 
-.form-banner {
+.race-banner {
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form-banner h1 {
+.event-banner {
+  background-size: cover !important;
+  background-repeat: repeat;
+  h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.race-banner h1 {
   text-align: center;
   color: white;
   font-size: 50px;

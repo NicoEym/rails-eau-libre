@@ -1,6 +1,10 @@
-<div class="container">
-  <h1>Ajouter des épreuves à votre course d'eau libre <%= @swim_race.name %>:</h1>
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1531043992167-48bedfe82ece?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2768&q=80);">
+  <div class="container">
+    <h1>Ajouter des épreuves à votre course d'eau libre "<%= @swim_race.name %>":</h1>
+    <br>
+    <%= render 'shared/formevents', swim_race: @swim_race %>
+    <button id="add-distance" class="btn btn-lg btn-secondary">+ Ajouter une épreuve</button>
+    <button id="submit-form" class="btn btn-lg btn-primary">Valider ces épreuves</button>
+  </div>
   <br>
-
-  <%= render 'shared/formevents', swim_race: @swim_race %>
 </div>

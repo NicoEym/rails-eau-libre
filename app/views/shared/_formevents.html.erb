@@ -1,4 +1,4 @@
-<%= simple_form_for [@swim_race, @swim_event], html: { id: :form_new_event}  do |f| %>
+<%= simple_form_for [@swim_race, @swim_event], remote: true, html: { id: :form_new_event}  do |f| %>
   <h5>Epreuve:</h5>
   <div class="form-distance" >
     <%= f.input :distance, label: 'Distance (km):' %>
@@ -6,5 +6,3 @@
     <%= f.input :comment, label: 'Equipement:'%>
   </div>
 <% end %>
-<button id="add-distance" class="btn btn-lg btn-secondary">+ Ajouter une épreuve</button>
-<button id="submit-form" class="btn btn-lg btn-primary">Valider ces épreuves</button>
