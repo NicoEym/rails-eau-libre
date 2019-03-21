@@ -11,3 +11,27 @@
   padding: 1em;
   margin-bottom: 1em;
 }
+
+#new_swim_race {
+  background-color: rgba(290,290,290, 0.6);
+  border-radius: 1em;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-banner {
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-banner h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
