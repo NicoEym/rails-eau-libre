@@ -1,43 +1,58 @@
 <div class="container">
-  <p><%= @swim_race.name %></p>
-  <%= cl_image_tag @swim_race.photo, height: 300, width: 400, crop: :fill %>
-  <div
-    id="map"
-    style="width: 40%;
-    height: 300px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-  <p>Ville: <%= @swim_race.city_name %></p>
-  <p>Date de la course: <%= @swim_race.dates %></p>
-  <p>Description: <%= @swim_race.description %></p>
-  <p><%= @swim_race.longitude %></p>
-  <p><%= @swim_race.latitude %></p>
-  <p>Site internet de l'organisateur: <%= link_to(@swim_race.source_url, @swim_race.source_url) %> </p>
-
+  <h1 class="text-center"><%= @swim_race.name %></h1>
+  <div class="race-events">
+    <div class="race-data space-between">
+      <div class="race-infos">
+        <h2>Informations:</h2>
+        <p><strong>Ville: </strong><%= @swim_race.city_name %></p>
+        <p><strong>Date de la course: </strong> <%= @swim_race.dates %></p>
+        <p><strong>Description:</strong></p>
+        <p><%= @swim_race.description %></p>
+        <p><strong>Site internet de l'organisateur:</strong></p>
+        <p><%= link_to(@swim_race.source_url, @swim_race.source_url) %></p>
+        <p><%= @swim_race.longitude %></p>
+        <p><%= @swim_race.latitude %></p>
+      </div>
+      <div class="race-media">
+        <%= cl_image_tag @swim_race.photo, height: 300, width: 400, crop: :fill %>
+        <div
+          id="map"
+          style="width: 400px;
+          height: 300px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+      </div>
+    </div>
   <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(@swim_race) %>
   </button>
   <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(@swim_race),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
   </button>
-
-  <p>Epreuves:</p>
+  </div>
+  <div class="race-events">
+  <h2>Epreuves:</h2>
   <% events = @swim_race.swim_events %>
   <% events.each do |event| %>
-    <div>
-      <p><%= event.distance %> km</p>
-      <p><%= event.price %> euros</p>
+    <div class="swim-events">
+      <div class="space-between">
+        <p><strong>Distance: </strong><%= event.distance %> km</p>
+        <p><strong>Prix: </strong><%= event.price %> euros</p>
+      </div>
+      <p><strong>Informations de l'épreuve:</strong></p>
       <p><%= event.comment %></p>
-      <%= link_to "Supprimer cette course", swim_race_swim_event_path(@swim_race, event),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+
+        <%= link_to "Supprimer", swim_race_swim_event_path(@swim_race, event),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+
     </div>
   <% end %>
 
-    <button class="btn btn-secondary"><%= link_to "Ajouter des courses",  new_swim_race_swim_event_path(@swim_race) %>
+    <button class="btn btn-secondary"><%= link_to "Ajouter des épreuves",  new_swim_race_swim_event_path(@swim_race) %>
     </button>
-    <button class="btn btn-warning"><%= link_to "Modifier supprimer des courses", edit_swim_race_swim_event_path(@swim_race) %>
+    <button class="btn btn-warning"><%= link_to "Modifier des épreuves", edit_swim_race_swim_event_path(@swim_race) %>
     </button>
-
+    </div>
 </div>

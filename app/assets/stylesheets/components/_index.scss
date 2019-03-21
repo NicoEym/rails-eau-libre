@@ -6,3 +6,11 @@
 @import "card";
 @import "form";
 @import "button";
+@import "showrace";
+
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-item: center;
+}

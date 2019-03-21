@@ -1,0 +1,28 @@
+.race-data {
+  border-radius: 1em;
+  background-color: rgba(290,290,290, 0.6);
+  box-shadow: 1em;
+  padding: 1em;
+}
+
+.race-events {
+  background-color: rgba(200,200,200, 0.8);
+  border-radius: 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+
+.swim-events {
+  background-color: rgba(290,290,290, 0.6);
+  border-radius: 1em;
+  padding: 1em;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
