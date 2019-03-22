@@ -15,4 +15,15 @@
   align-item: center;
 }
 
+.second-container {
+  display: flex;
+  justify-content: space-between;
+}
 
+
+.map-container {
+  position: sticky;
+  top: 10px;
+  flex-grow: 1;
+  height: 100vh;
+}
