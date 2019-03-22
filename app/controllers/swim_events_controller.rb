@@ -1,5 +1,4 @@
 class SwimEventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
     @swim_race = SwimRace.find(params[:swim_race_id])
     @swim_event = SwimEvent.new

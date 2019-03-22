@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_172711) do
+ActiveRecord::Schema.define(version: 2019_03_22_104333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_172711) do
     t.datetime "updated_at", null: false
     t.string "source_url"
     t.string "photo"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_swim_races_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,9 +48,11 @@ ActiveRecord::Schema.define(version: 2019_03_19_172711) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "swim_events", "swim_races"
+  add_foreign_key "swim_races", "users"
 end

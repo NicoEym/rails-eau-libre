@@ -12,13 +12,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Créer une nouvelle course", "#", class: "nav-link" %>
+          <%= link_to "Créer une nouvelle course", new_swim_race_path, class: "nav-link" %>
         </li>
          <li class="nav-item">
-          <%= link_to "Voir mes course", "#", class: "nav-link" %>
+          <%= link_to "Voir mes courses",  swim_races_my_races_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Rechercher une course", "#", class: "nav-link" %>
+          <%= link_to "Rechercher une course", swim_races_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -36,7 +36,10 @@
           <%= link_to "Rechercher une course", swim_races_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>

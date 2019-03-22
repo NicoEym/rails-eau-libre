@@ -12,6 +12,8 @@
         <p><%= link_to(@swim_race.source_url, @swim_race.source_url) %></p>
         <p><%= @swim_race.longitude %></p>
         <p><%= @swim_race.latitude %></p>
+        <p><strong>Créé par:</strong></p>
+        <p><%= @swim_race.user.email %></p>
       </div>
       <div class="race-media">
         <%= cl_image_tag @swim_race.photo, height: 300, width: 400, crop: :fill %>
@@ -24,35 +26,19 @@
         ></div>
       </div>
     </div>
-  <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(@swim_race) %>
-  </button>
-  <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(@swim_race),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  </button>
   </div>
   <div class="race-events">
-  <h2>Epreuves:</h2>
-  <% events = @swim_race.swim_events %>
-  <% events.each do |event| %>
-    <div class="swim-events">
-      <div class="space-between">
-        <p><strong>Distance: </strong><%= event.distance %> km</p>
-        <p><strong>Prix: </strong><%= event.price %> euros</p>
+    <h2>Epreuves:</h2>
+    <% events = @swim_race.swim_events %>
+    <% events.each do |event| %>
+      <div class="swim-events">
+        <div class="space-between">
+          <p><strong>Distance: </strong><%= event.distance %> km</p>
+          <p><strong>Prix: </strong><%= event.price %> euros</p>
+        </div>
+        <p><strong>Informations de l'épreuve:</strong></p>
+        <p><%= event.comment %></p>
       </div>
-      <p><strong>Informations de l'épreuve:</strong></p>
-      <p><%= event.comment %></p>
-
-        <%= link_to "Supprimer", swim_race_swim_event_path(@swim_race, event),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-
-    </div>
-  <% end %>
-
-    <button class="btn btn-secondary"><%= link_to "Ajouter des épreuves",  new_swim_race_swim_event_path(@swim_race) %>
-    </button>
-    <button class="btn btn-warning"><%= link_to "Modifier des épreuves", edit_swim_race_swim_event_path(@swim_race) %>
-    </button>
-    </div>
+    <% end %>
+  </div>
 </div>

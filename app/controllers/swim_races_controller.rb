@@ -1,5 +1,5 @@
 class SwimRacesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :show, :index, :destroy, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def new
     @swim_race = SwimRace.new
@@ -7,7 +7,8 @@ class SwimRacesController < ApplicationController
 
   def create
     @swim_race = SwimRace.new(swim_race_params)
-    @swim_race.save
+    @swim_race.user_id = current_user.id
+    @swim_race.save!
     redirect_to new_swim_race_swim_event_path(@swim_race)
   end
 
@@ -26,6 +27,11 @@ class SwimRacesController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { swim_race: swim_race }),
       }
     end
+  end
+
+
+  def my_races
+    @swim_races = SwimRace.where(user_id: current_user.id)
   end
 
   def show
