@@ -12,7 +12,6 @@ class SwimEventsController < ApplicationController
 
   def edit
     @swim_race = SwimRace.find(params[:swim_race_id])
-    @swim_event = SwimEvent.new
     swim_race_id = @swim_race.id
     @swim_events = SwimEvent.where(swim_race_id: swim_race_id)
   end

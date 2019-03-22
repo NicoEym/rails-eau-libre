@@ -29,7 +29,6 @@ class SwimRacesController < ApplicationController
     end
   end
 
-
   def my_races
     @swim_races = SwimRace.where(user_id: current_user.id)
   end
