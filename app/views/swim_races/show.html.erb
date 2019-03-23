@@ -27,17 +27,19 @@
             <h2 class= text-center>Epreuves:</h2>
             <% events = @swim_race.swim_events %>
             <% events.each do |event| %>
-              <div class="space-between">
-                <p><strong>Distance: </strong><%= event.distance %> km</p>
-                <p><strong>Prix: </strong><%= event.price %> euros</p>
+              <div class="event-box" >
+                <div class="space-between">
+                  <p><strong>Distance: </strong><%= event.distance %> km</p>
+                  <p><strong>Prix: </strong><%= event.price %> euros</p>
+                </div>
+                <p><strong>Informations de l'épreuve:</strong></p>
+                <p><%= event.comment %></p>
+                <% if @swim_race.user_id == current_user.id %>
+                  <%= link_to "Supprimer", swim_race_swim_event_path(@swim_race, event),
+                                    method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
+                <% end %>
               </div>
-              <p><strong>Informations de l'épreuve:</strong></p>
-              <p><%= event.comment %></p>
-              <% if @swim_race.user_id == current_user.id %>
-                <%= link_to "Supprimer", swim_race_swim_event_path(@swim_race, event),
-                                  method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
-              <% end %>
             <% end %>
             <% if @swim_race.user_id == current_user.id %>
               <button class="btn btn-secondary"><%= link_to "Ajouter des épreuves",  new_swim_race_swim_event_path(@swim_race) %>
