@@ -1,9 +1,9 @@
 <div class="container">
   <div>
     <h2 class="text-center">Mes courses:</h2>
-    <div class="row">
       <% @swim_races.each do |swim_race| %>
         <div class="my-race">
+          <div class="race-events">
           <h3><strong>Nom de la course: </strong><%= swim_race.name %></h3>
           <p><strong>Ville: </strong><%= swim_race.city_name %></p>
           <p><strong>Date de la course: </strong> <%= swim_race.dates %></p>
@@ -11,43 +11,46 @@
           <p><%= swim_race.description %></p>
           <p><strong>Site internet de l'organisateur:</strong></p>
           <p><%= link_to(swim_race.source_url, swim_race.source_url) %></p>
+          <%= cl_image_tag(swim_race.photo, :class => "img_my_race") %>
           <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(swim_race) %>
           </button>
           <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(swim_race),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
           </button>
+        </div>
+          <div class="race-events">
+            <h4>Epreuves:</h4>
+            <% events = swim_race.swim_events %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Distance</th>
+                        <th>Prix</th>
+                        <th>Informations</th>
 
-          <h4>Epreuves:</h4>
-          <% events = swim_race.swim_events %>
-          <table>
-              <thead>
+                    </tr>
+                </thead>
+              <tbody>
+                <% events.each do |event| %>
                   <tr>
-                      <th>Distance</th>
-                      <th>Prix</th>
-                      <th>Informations</th>
-                      <th>Supprimer</th>
+                    <td><%= event.distance %> km</td>
+                    <td><%= event.price %> euros</td>
+                    <td><%= event.comment %></td>
+                    <td><%= link_to "Supprimer", swim_race_swim_event_path(swim_race, event),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %></td>
                   </tr>
-              </thead>
-            <tbody>
-              <% events.each do |event| %>
-                <tr>
-                  <td><%= event.distance %> km</td>
-                  <td><%= event.price %> euros</td>
-                  <td><%= event.comment %></td>
-                  <td><%= link_to "Supprimer", swim_race_swim_event_path(swim_race, event),
-                          method: :delete,
-                          data: { confirm: "Are you sure?" } %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <button class="btn btn-secondary"><%= link_to "Ajouter des épreuves",  new_swim_race_swim_event_path(swim_race) %>
-          </button>
-          <button class="btn btn-warning"><%= link_to "Modifier des épreuves", edit_swim_race_swim_event_path(swim_race, events) %>
-          </button>
+                <% end %>
+              </tbody>
+            </table>
+
+            <button class="btn btn-secondary"><%= link_to "Ajouter des épreuves",  new_swim_race_swim_event_path(swim_race) %>
+            </button>
+            <button class="btn btn-warning"><%= link_to "Modifier des épreuves", edit_swim_race_swim_event_path(swim_race, events) %>
+            </button>
+          </div>
         </div>
       <% end %>
-    </div>
   </div>
 </div>

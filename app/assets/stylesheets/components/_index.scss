@@ -8,6 +8,19 @@
 @import "button";
 @import "showrace";
 
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+
 
 .space-between {
   display: flex;
@@ -26,4 +39,8 @@
   top: 10px;
   flex-grow: 1;
   height: 100vh;
+}
+
+table {
+  width: 100%;
 }

@@ -1,12 +1,14 @@
-<%= simple_form_for @swim_race, html: { class: "form-new-race"}  do |f| %>
-    <div class="col-xs-12 col-md-9">
-      <%= f.input :name, label: 'Nom de la course:'%>
-      <%= f.input :city_name, label: "Ville:" %>
-      <%= f.input  :dates, as: :date, label: "Date de la course:" %>
-      <%= f.input :description, label: 'Informations:'%>
-      <%= f.input  :source_url, label: "Site-web de la course:" %>
-      <%= f.input :photo, label: "Photo:" %>
-      <%= f.input :photo_cache, as: :hidden %>
-      <%= f.submit "Ajouter des épreuves d'Eau Libre", class: "btn-outline" %>
-    </div>
-<% end %>
+<div class="col-md-6 offset-md-3">
+  <%= simple_form_for @swim_race, html: { class: "form-new-race"}  do |f| %>
+      <div class="col-xs-12 col-md-9">
+        <%= f.input :name, label: 'Nom de la course:'%>
+        <%= f.input :city_name, label: "Ville:" %>
+        <%= f.input  :dates, as: :date, label: "Date de la course:" %>
+        <%= f.input :description, label: 'Informations:'%>
+        <%= f.input  :source_url, label: "Site-web de la course:" %>
+        <%= f.input :photo, label: "Photo:" %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit "Ajouter des épreuves d'Eau Libre", class: "btn-primary" %>
+      </div>
+  <% end %>
+</div>

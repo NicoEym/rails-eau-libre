@@ -1,6 +1,7 @@
 <div class="container">
-  <h1 class="text-center"><%= @swim_race.name %></h1>
+
   <div class="race-events">
+    <h1 class="text-center"><%= @swim_race.name %></h1>
     <div class="race-data space-between">
       <div class="race-infos">
         <h2>Informations:</h2>
@@ -10,11 +11,12 @@
         <p><%= @swim_race.description %></p>
         <p><strong>Site internet de l'organisateur:</strong></p>
         <p><%= link_to(@swim_race.source_url, @swim_race.source_url) %></p>
-        <p><%= @swim_race.longitude %></p>
-        <p><%= @swim_race.latitude %></p>
       </div>
       <div class="race-media">
+        <div class="media">
         <%= cl_image_tag @swim_race.photo, height: 300, width: 400, crop: :fill %>
+        </div>
+
         <div
           id="map"
           style="width: 400px;
@@ -35,7 +37,7 @@
   </div>
 
   <div class="race-events">
-    <h2>Epreuves:</h2>
+    <h2 class= text-center>Epreuves:</h2>
     <% events = @swim_race.swim_events %>
     <% events.each do |event| %>
       <div class="swim-events">

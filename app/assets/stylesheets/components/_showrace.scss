@@ -1,28 +1,42 @@
 .race-data {
-  border-radius: 1em;
+  border-radius: 0.2em;
   background-color: rgba(290,290,290, 0.6);
   box-shadow: 1em;
-  padding: 1em;
+  padding: 0.5em;
 }
 
 .race-events {
-  background-color: rgba(200,200,200, 0.8);
-  border-radius: 1em;
-  padding: 1em;
+  background-color: #D9F0FF;
+  border-radius: 0.2em;
+  padding: 0.5em;
   margin-bottom: 1em;
+  position: relative;
 }
 
 
 .swim-events {
   background-color: rgba(290,290,290, 0.6);
-  border-radius: 1em;
-  padding: 1em;
-  margin-bottom: 1em;
+  border-radius: 0.2em;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
   position: relative;
 }
 
 .top-right {
   position: absolute;
   bottom: 1em;
+  right: 1em;
+}
+
+.media {
+  padding: 0.25em;
+}
+
+
+.img_my_race {
+  width: 15em ;
+  height: 10em;
+  position: absolute;
+  top: 1em;
   right: 1em;
 }
