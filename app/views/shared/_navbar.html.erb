@@ -5,7 +5,7 @@
   </a>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right d-none d-md-block d-xl-none">
+  <div class="navbar-wagon-right d-none d-md-block">
     <% if user_signed_in? %>
     <%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path, class: "navbar-wagon-item navbar-wagon-link white" %>
     <%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path, class: "navbar-wagon-item navbar-wagon-link white" %>
