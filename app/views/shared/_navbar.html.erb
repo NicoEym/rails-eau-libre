@@ -5,7 +5,7 @@
   </a>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right d-none d-md-block d-xl-none">
     <% if user_signed_in? %>
     <%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path, class: "navbar-wagon-item navbar-wagon-link white" %>
     <%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path, class: "navbar-wagon-item navbar-wagon-link white" %>
@@ -17,7 +17,23 @@
       <%= link_to "S'inscrire", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link white" %>
     <% end %>
   </div>
-
   <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item d-md-none">
+    <div class="dropdown">
+      <i class="fas fa-bars dropdown-toggle white" data-toggle="dropdown" role="button"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <% if user_signed_in? %>
+          <li><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
+          <li><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
+          <li><%= link_to raw('<i class="fas fa-tasks"></i> Gérer mes courses'),  swim_races_my_races_path %></li>
+        <% else %>
+        <li><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
+          <li><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
+          <li><%= link_to "Se connecter", new_user_session_path %></li>
+          <li><%= link_to "S'inscrire", new_user_registration_path %></li>
+        <% end  %>
+      </ul>
+    </div>
+  </div>
 </div>
 
