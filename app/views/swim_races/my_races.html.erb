@@ -11,13 +11,14 @@
           <p><%= swim_race.description %></p>
           <p><strong>Site internet de l'organisateur:</strong></p>
           <p><%= link_to(swim_race.source_url, swim_race.source_url) %></p>
-          <%= cl_image_tag(swim_race.photo, :class => "img_my_race") %>
-          <button class="btn btn-secondary"><%= link_to "Modifier cette course", edit_swim_race_path(swim_race) %>
-          </button>
-          <button class="btn btn-warning"><%= link_to "Supprimer cette course", swim_race_path(swim_race),
+          <div class="race-data">
+            <%= cl_image_tag(swim_race.photo, :class => "img_my_race") %>
+          </div>
+          <%= link_to raw('<i class="fas fa-edit"></i>Modifier cette course'), edit_swim_race_path(swim_race) %>
+          <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer cette course'), swim_race_path(swim_race),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-          </button>
+
         </div>
           <div class="race-events">
             <h4>Epreuves:</h4>
@@ -37,18 +38,15 @@
                     <td><%= event.distance %> km</td>
                     <td><%= event.price %> euros</td>
                     <td><%= event.comment %></td>
-                    <td><%= link_to "Supprimer", swim_race_swim_event_path(swim_race, event),
+                    <td><%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer'), swim_race_swim_event_path(swim_race, event),
                             method: :delete,
                             data: { confirm: "Are you sure?" } %></td>
                   </tr>
                 <% end %>
               </tbody>
             </table>
-
-            <button class="btn btn-secondary"><%= link_to "Ajouter des épreuves",  new_swim_race_swim_event_path(swim_race) %>
-            </button>
-            <button class="btn btn-warning"><%= link_to "Modifier des épreuves", edit_swim_race_swim_event_path(swim_race, events) %>
-            </button>
+            <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter des épreuves'),  new_swim_race_swim_event_path(swim_race) %>
+            <%= link_to raw('<i class="fas fa-edit"></i> Modifier des épreuves'), edit_swim_race_swim_event_path(swim_race, events) %>
           </div>
         </div>
       <% end %>
