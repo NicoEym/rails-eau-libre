@@ -11,6 +11,16 @@
   margin-bottom: 1em;
 }
 
+#swim_race_city_name {
+    border-radius: 5em;
+    background-color: rgba(255, 255, 255, 0);
+    border: solid white 2px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgb(255, 255, 255);
+}
+
 .form-new-race {
   background-color: rgba(290,290,290, 0.6);
   border-radius: 1em;
