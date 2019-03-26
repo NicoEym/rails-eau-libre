@@ -1,8 +1,16 @@
-
-<div class="banner half" style="background-image: linear-gradient(rgba(4,6,1,0.4), rgba(6,102,248,0.5)), url(https://res.cloudinary.com/dzxrdf9za/image/upload/v1553374879/eau%20libre/vlcsnap-2018-01-27-11h36m41s032.png);">
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-xs-12 col-md-4 offset-md-4">
+    <%= simple_form_for :search, url: swim_races_path, method: "GET", input_html: { class: "form-inline search-form" } do |f| %>
+     <%= f.input :city_name, input_html: {value: "", id: "swim_race_city_name", class: "border-blue"}, placeholder: "Chercher une ville", label: false %>
+      <%= f.submit "Rechercher", class: "btn btn-primary inline-absolute" %>
+    <% end %>
+  </div>
 </div>
 <br>
-<div class="container back">
+<div class="container">
   <br>
   <% if @city_name.nil? %>
       <h2 class="text-center">Rechercher une course:</h2>
@@ -12,10 +20,6 @@
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <div class="race-container">
-            <%= simple_form_for :search, url: swim_races_path, method: "GET", input_html: { class: "form-inline search-form" } do |f| %>
-             <%= f.input :city_name, input_html: {value: "", id: "swim_race_city_name"}, placeholder: "Chercher une ville", label: false %>
-              <%= f.submit "Rechercher", class: "btn btn-primary inline-absolute" %>
-            <% end %>
             <div class="row">
               <% @swim_races.each do |swim_race| %>
                 <div class="col-xs-12 col-md-12">
@@ -50,6 +54,5 @@
         </div>
       </div>
     </div>
-
 </div>
 
