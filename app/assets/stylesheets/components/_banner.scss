@@ -25,3 +25,10 @@
   height: 50vh;
   background-position: 75% 25%;
 }
+
+.form-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+}
