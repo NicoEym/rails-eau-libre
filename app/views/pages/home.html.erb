@@ -1,20 +1,18 @@
-<div class="banner" style="background-image: linear-gradient(rgba(100,100,100,0.1),rgba(100,100,100,0.1)), url(https://res.cloudinary.com/dzxrdf9za/image/upload/v1553506386/Open-Water-Swim-Races-6-1024x680.jpg);">
-  <div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(100,100,100,0.1),rgba(100,100,100,0.1)), url(https://res.cloudinary.com/dzxrdf9za/image/upload/v1553634476/eau%20libre/photo_landing_page.jpg);">
+  <div class="container bottom-left">
     <h1>Eau libre</h1>
     <p>Trouve ta prochaine course de natation en eau libre près de chez toi:</p>
     <div class="search-form-home">
-      <%= simple_form_for :search, url: swim_races_path, method: "GET" do |f| %>
-        <div class="row">
-          <div class="col-xs-12 cl-md-9">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <%= simple_form_for :search, url: swim_races_path, method: "GET", input_html: { class: "form-inline search-form" } do |f| %>
             <%= f.input :city_name, input_html: {value: "", id: "swim_race_city_name"}, placeholder: "Chercher une ville", label: false %>
-          </div>
-          <div class="col-xs-12 cl-md-3">
-            <%= button_tag type: 'submit', class: "btn primary" do %>
+            <%= button_tag type: 'submit', class: "btn btn-search-form-banner inline-absolute" do %>
               <i class="fas fa-search"></i>
             <% end %>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

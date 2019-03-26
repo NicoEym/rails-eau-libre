@@ -1,4 +1,6 @@
   <div class="container">
+    <br>
+    <br>
     <div class="race-events">
       <h1 class="text-center"><%= @swim_race.name %></h1>
       <div class="row">
@@ -14,11 +16,13 @@
               <p><%= link_to(@swim_race.source_url, @swim_race.source_url) %></p>
             </div>
           </div>
-          <% if @swim_race.user_id == current_user.id %>
-            <%= link_to raw('<i class="fas fa-edit"></i>Modifier cette course'), edit_swim_race_path(@swim_race) %>
-            <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer cette course'), swim_race_path(@swim_race),
+          <% if !current_user.nil? %>
+            <% if @swim_race.user_id == current_user.id %>
+              <%= link_to raw('<i class="fas fa-edit"></i>Modifier cette course'), edit_swim_race_path(@swim_race) %>
+              <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer cette course'), swim_race_path(@swim_race),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
+            <% end %>
           <% end %>
           <br>
           <div class="swim-events">
@@ -32,16 +36,20 @@
                 </div>
                 <p><strong>Informations de l'épreuve:</strong></p>
                 <p><%= event.comment %></p>
-                <% if @swim_race.user_id == current_user.id %>
-                  <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer'), swim_race_swim_event_path(@swim_race, event),
-                                    method: :delete,
-                                    data: { confirm: "Are you sure?" } %>
+                <% if !current_user.nil? %>
+                  <% if @swim_race.user_id == current_user.id %>
+                    <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer'), swim_race_swim_event_path(@swim_race, event),
+                                      method: :delete,
+                                      data: { confirm: "Are you sure?" } %>
+                  <% end %>
                 <% end %>
               </div>
             <% end %>
-            <% if @swim_race.user_id == current_user.id %>
-              <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter des épreuves'),  new_swim_race_swim_event_path(@swim_race) %>
-              <%= link_to raw('<i class="fas fa-edit"></i> Modifier des épreuves'), edit_swim_race_swim_event_path(@swim_race) %>
+            <% if !current_user.nil? %>
+              <% if @swim_race.user_id == current_user.id %>
+                <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter des épreuves'),  new_swim_race_swim_event_path(@swim_race) %>
+                <%= link_to raw('<i class="fas fa-edit"></i> Modifier des épreuves'), edit_swim_race_swim_event_path(@swim_race) %>
+              <% end %>
             <% end %>
           </div>
         </div>

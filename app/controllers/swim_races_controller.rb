@@ -17,8 +17,10 @@ class SwimRacesController < ApplicationController
     @search = params["search"]
     if @search.present?
       @city_name = @search["city_name"]
-      coordinates = Geocoder.search(@city_name).first.coordinates
-      @swim_races = SwimRace.near(coordinates, 200)
+      if @city_name != ""
+        coordinates = Geocoder.search(@city_name).first.coordinates
+        @swim_races = SwimRace.near(coordinates, 200)
+      end
     end
     @markers = @swim_races.map do |swim_race|
       {

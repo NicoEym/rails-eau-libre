@@ -39,6 +39,8 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+  border-radius: 0.25em;
+  border: solid 0.1em #EEEFEE;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -78,7 +80,6 @@
 
 .white {
   color: white!important;
-  border: solid 0.5px #EEEFEE;
   margin: 0em 0.2em;
   padding: 0.5em;
   &:hover{
