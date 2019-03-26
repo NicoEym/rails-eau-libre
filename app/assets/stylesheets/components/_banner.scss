@@ -21,7 +21,37 @@
   margin-bottom: 30px;
 }
 
-.half {
-  height: 50vh;
-  background-position: 75% 25%;
+
+.form-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+}
+
+.race-banner {
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-banner {
+  background-size: cover !important;
+  background-repeat: repeat;
+  h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.race-banner h1 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
