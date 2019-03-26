@@ -12,7 +12,7 @@
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me,
-                    label: "Se souvenir de "
+                    label: "Se souvenir de ",
                       as: :boolean if devise_mapping.rememberable? %>
       </div>
 
