@@ -1,10 +1,9 @@
 .banner {
   color: white;
-  text-align: center;
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  position: absolute;
+  position: relative;
 }
 .banner h1 {
   font-size: 50px;
@@ -25,6 +24,12 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - 70px);
+}
+
+.bottom-left {
+  position: absolute;
+  top: 70%;
+  left: 10%;
 }
 
 .race-banner {
