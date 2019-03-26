@@ -14,8 +14,8 @@
   </div>
   <br>
   <br>
-  <% if @city_name.nil? %>
-      <h2 class="text-center">Rechercher une course:</h2>
+  <% if @city_name.nil? || @city_name =="" %>
+      <h2 class="text-center">Toutes les courses:</h2>
     <% else %>
       <h4 class="text-center">Résultats autour de <%= @city_name %></h4>
   <% end %>
