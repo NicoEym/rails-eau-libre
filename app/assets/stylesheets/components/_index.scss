@@ -37,6 +37,11 @@ p {
   overflow: scroll;
 }
 
+.scroll-overflow-event {
+  max-height: 55vh;
+  overflow: scroll;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;

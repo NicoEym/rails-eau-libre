@@ -41,20 +41,17 @@
 
 .event-banner {
   background-size: cover !important;
-  background-repeat: repeat;
-  h1 {
+  min-height: calc(100vh - 70px);
+  background-position: center;
+  h2 {
   text-align: center;
-  color: white;
-  font-size: 50px;
-  font-weight: bold;
+  color: #0C4E71;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   }
 }
 
-.race-banner h1 {
+.race-banner h2 {
   text-align: center;
-  color: white;
-  font-size: 50px;
-  font-weight: bold;
+  color: #0C4E71;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }

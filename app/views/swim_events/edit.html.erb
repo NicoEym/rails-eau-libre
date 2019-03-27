@@ -1,22 +1,32 @@
-<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1531043992167-48bedfe82ece?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2768&q=80);">
-  <div class="container">
-    <h1>Editer les épreuves de votre course d'eau libre "<%= @swim_race.name %>":</h1>
-    <br>
-    <% if @swim_events.length == 0  %>
-      <%= render 'shared/formevents', swim_race: @swim_race %>
-    <% else  %>
-      <%  @swim_events.each do |swim_event| %>
-        <%= simple_form_for [@swim_race, swim_event], remote: true, html: { id: :form_new_event}  do |f| %>
-          <h5>Epreuve:</h5>
-          <div class="form-distance" >
-            <%= f.input :distance, label: 'Distance (km):' %>
-            <%= f.input :price, label: 'Price:'%>
-            <%= f.input :comment, label: 'Equipement:'%>
-          </div>
-        <% end %>
+<div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1534289692684-c02577d5560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+  <br>
+  <br>
+  <div class="col-xs-12 col-md-8 offset-md-2">
+    <div>
+      <h2>Editer les épreuves de votre course "<%= @swim_race.name %>"</h2>
+      <br>
+      <% if @swim_events.length == 0  %>
+        <%= render 'shared/formevents', swim_race: @swim_race %>
+      <% else  %>
+        <div class="scroll-overflow-event" style="border-radius: 0.25em;">
+          <%  @swim_events.each do |swim_event| %>
+            <%= simple_form_for [@swim_race, swim_event], remote: true, html: { id: :form_new_event}  do |f| %>
+              <h5>Epreuve:</h5>
+              <div class="form-distance" >
+                <div id="distance-prix">
+                  <%= f.input :distance, label: 'Distance (km):' %>
+                  <%= f.input :price, label: 'Price:'%>
+                </div>
+                <div id="more-infos">
+                  <%= f.input :comment, label: 'Equipement:', placeholder: "Ajouter ici les informations concernant les horaires, l'équipement autorisé..."%>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
-    <button id="submit-form" class="btn btn-lg btn-primary">Valider ces épreuves</button>
+    </div>
+    <button id="submit-form" class="btn btn-lg btn-primary blue-nav"><i class="fas fa-check"></i> Valider ces épreuves</button>
   </div>
 </div>
 
