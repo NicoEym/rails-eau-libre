@@ -1,10 +1,12 @@
 function duplicate() {
     var original = document.querySelector('#form_new_event');
+
     var clone = original.cloneNode(true); // "deep" clone
-    // clone.id = "form_new_event" + ++i; // there can only be one element with an ID
-     // event handlers are not cloned
-    original.insertAdjacentElement('afterend', clone);
-}
+    var eventsContainer = document.querySelector('#events-container');
+    eventsContainer.insertAdjacentElement('afterbegin', clone);
+    var original = document.querySelector('#form_new_event');
+    original.reset();
+  }
 
 const addDistance = () => {
   const addButton = document.getElementById('add-distance');

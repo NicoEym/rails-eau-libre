@@ -2,14 +2,14 @@
   <br>
   <br>
   <div class="col-xs-12 col-md-8 offset-md-2">
-    <div>
-      <h2>Editer les épreuves de votre course "<%= @swim_race.name %>"</h2>
-      <br>
+    <div style="background-color: rgba(255, 255, 255, 0.7); border-radius: 0.25em; padding:1em; margin-bottom: 1em;">
+      <h2>Modifier les épreuves à votre course "<%= @swim_race.name %>"</h2>
+        <br>
       <% if @swim_events.length == 0  %>
-        <%= render 'shared/formevents', swim_race: @swim_race %>
+          <%= render 'shared/formevents', swim_race: @swim_race %>
       <% else  %>
         <div class="scroll-overflow-event" style="border-radius: 0.25em;">
-          <%  @swim_events.each do |swim_event| %>
+          <% @swim_events.each do |swim_event| %>
             <%= simple_form_for [@swim_race, swim_event], remote: true, html: { id: :form_new_event}  do |f| %>
               <h5>Epreuve:</h5>
               <div class="form-distance" >
