@@ -22,35 +22,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <div class="race-container">
-          <div class="row scroll-overflow">
-            <% @swim_races.each_with_index do |swim_race, index| %>
-              <div class="col-xs-12 col-md-12">
-                <div class="card">
-                  <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path swim_race.photo %>);">
-                  </div>
-                  <div class="card-infos">
-                    <div class="card-details">
-                      <div class="card-date"><%= swim_race.dates %>
-                      </div>
-                      <div class="card-name">
-                        <h2><%= swim_race.name %> <%= index %> </h2>
-                        <p><i class="fas fa-map-marker-alt"></i> <%= swim_race.city_name %></p>
-                      </div>
-                      <div class="card-events">
-                        <p><%= swim_race.name %> <%= index %></p>
-                        <ul class="list-inline">
-                          <% swim_race.swim_events.each do |event| %>
-                            <li class="list-inline-item"><%= event.distance %> km</li>
-                          <% end %>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <%= link_to("", swim_race_path(swim_race.id), class:"card-link")  %>
-                </div>
-              </div>
-            <% end %>
-          </div>
+          <%= render 'shared/cards', swim_race: @swim_races %>
         </div>
       </div>
       <div class="col-xs-12 col-md-6">

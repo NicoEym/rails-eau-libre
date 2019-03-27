@@ -7,7 +7,7 @@
           <h2>Editer votre course d'eau libre</h2>
         <% end %>
         <%= f.input :name, label: 'Nom de la course:'%>
-        <%= f.input :city_name, label: "Ville:" %>
+        <%= f.input :city_name, label: "Ville:", input_html: { id: "new-race-city-input" } %>
         <%= f.input  :dates, as: :date, label: "Date de la course:" %>
         <%= f.input :description, label: 'Informations:'%>
         <%= f.input  :source_url, label: "Site-web de la course:" %>
