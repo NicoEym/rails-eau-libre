@@ -12,10 +12,11 @@
 }
 
 #form_new_event {
-  background-color: rgba(290,290,290, 0.6);
-  border-radius: 1em;
+  background-color: rgba(255,255,255, 0.6);
+  border-radius: 0.25em;
   padding: 1em;
   margin-bottom: 1em;
+  color: #0C4E71;
 }
 
 #swim_race_city_name {
@@ -29,13 +30,21 @@
     color: rgb(255, 255, 255);
 }
 
+.placeholder-index::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #3e71e1;
+}
+
 .form-new-race {
-  background-color: rgba(290,290,290, 0.6);
-  border-radius: 1em;
+  background-color: rgba(255,255,255, 0.7);
+  border-radius: 0.25em;
+  color: #0C4E71;
   padding: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
+  label {
+    font-size: 1.2rem;
+  }
 }
 
 .search-form {

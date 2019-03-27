@@ -3,7 +3,7 @@
   max-height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  background-position: 10% 50%;;
+  background-position: 10% 50%;
   position: relative;
 }
 .banner h1 {
@@ -35,9 +35,8 @@
 
 .race-banner {
   background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-position: center;
+  min-height: calc(100vh - 70px);
 }
 
 .event-banner {
