@@ -3,6 +3,7 @@
   max-height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  background-position: 10% 50%;;
   position: relative;
 }
 .banner h1 {
@@ -29,8 +30,8 @@
 
 .bottom-left {
   position: absolute;
-  top: 70%;
-  left: 10%;
+  top: 15%;
+  left: 5%;
 }
 
 .race-banner {
