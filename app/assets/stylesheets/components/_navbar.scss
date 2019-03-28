@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 /* Logo */
@@ -85,6 +86,28 @@
   &:hover{
     opacity:0.8;
   }
+}
+
+#burger-menu {
+  position: absolute;
+  top: 1.3em;
+  right: 1em;
+}
+.side-menu {
+  background-color: white;
+  position: absolute;
+  height:100vh;
+  width: 80%;
+  left: -80%;
+  top: 70px;
+  z-index: 2;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+
+.large {
+  left: 0%;
+  transition-duration: 1s
 }
 
 
