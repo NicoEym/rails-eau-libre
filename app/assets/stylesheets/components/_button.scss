@@ -35,3 +35,11 @@
   background-color: #999BA0;
   border: solid 1px #999BA0;
 }
+
+.participation {
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}

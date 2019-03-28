@@ -11,19 +11,21 @@
               <p><strong>Ville: </strong><%= @swim_race.city_name %></p>
               <p><strong>Date de la course: </strong> <%= @swim_race.dates %></p>
               <p><strong>Description:</strong></p>
-              <p><%= @swim_race.description %></p>
-              <p><strong>Site internet de l'organisateur:</strong></p>
-              <p><%= link_to(@swim_race.source_url, @swim_race.source_url) %></p>
+              <p class="text-justify"><%= @swim_race.description %></p>
+              <button class="btn btn-primary blue-nav"><%= link_to raw('<i class="fas fa-swimmer"></i> Je participe'), @swim_race.source_url, class: "participation"%></button>
             </div>
-          </div>
+
           <% if !current_user.nil? %>
             <% if @swim_race.user_id == current_user.id %>
-              <%= link_to raw('<i class="fas fa-edit"></i>Modifier cette course'), edit_swim_race_path(@swim_race) %>
-              <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer cette course'), swim_race_path(@swim_race),
+              <div class="icons">
+              <%= link_to raw('<i class="fas fa-edit"></i>'), edit_swim_race_path(@swim_race), class: "edit-icon" %>
+              <%= link_to raw('<i class="far fa-trash-alt"></i>'), swim_race_path(@swim_race),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+                  data: { confirm: "Are you sure?" }, class: "delete-icon" %>
+                </div>
             <% end %>
           <% end %>
+          </div>
           <br>
           <div class="swim-events">
             <h2 class= text-center>Epreuves:</h2>
@@ -35,7 +37,7 @@
                   <p><strong>Prix: </strong><%= event.price %> euros</p>
                 </div>
                 <p><strong>Informations de l'épreuve:</strong></p>
-                <p><%= event.comment %></p>
+                <p class="text-justify"><%= event.comment %></p>
                 <% if !current_user.nil? %>
                   <% if @swim_race.user_id == current_user.id %>
                     <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer'), swim_race_swim_event_path(@swim_race, event),

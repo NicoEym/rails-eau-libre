@@ -1,9 +1,14 @@
 <div class="row scroll-overflow">
-  <% @swim_races.each_with_index do |swim_race, index| %>
+  <% @swim_races.each do |swim_race| %>
     <div class="col-xs-12 col-md-12">
       <div class="card">
-        <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path swim_race.photo %>);">
-        </div>
+        <% if swim_race.photo.file.nil? %>
+          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dzxrdf9za/image/upload/v1553771363/placeholder.jpg');">
+          </div>
+        <% else %>
+          <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path swim_race.photo %>);">
+          </div>
+        <% end %>
         <div class="card-infos">
           <div class="card-details">
             <div class="card-date"><%= swim_race.dates %>
