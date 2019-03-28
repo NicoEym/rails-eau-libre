@@ -1,3 +1,4 @@
+require 'date'
 class SwimRacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
@@ -14,6 +15,7 @@ class SwimRacesController < ApplicationController
 
   def index
     @swim_races = SwimRace.where.not(latitude: nil, longitude: nil)
+    @swim_races = @swim_races.where('dates >= ?', Date.today).order(:dates)
     @search = params["search"]
     if @search.present?
       @city_name = @search["city_name"]
