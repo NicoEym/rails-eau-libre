@@ -36,10 +36,14 @@
   border: solid 1px #999BA0;
 }
 
-.participation {
+.white-color-link {
   color: white;
   &:hover {
     text-decoration: none;
     color: white;
   }
+}
+
+.icon-color {
+  color: #3e71e1;
 }

@@ -27,16 +27,10 @@
     border-radius: 5em;
     background-color: rgba(255, 255, 255, 0);
     border: solid white 2px;
-    color: black;
-
 }
 
 .placeholder-home::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: rgb(255, 255, 255);
-}
-
-.placeholder-index::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: #3e71e1;
 }
 
 .form-new-race {
@@ -82,3 +76,8 @@
   top: 0px;
   right: 1em;
 }
+
+.color-blue {
+  color: #3e71e1;
+}
+
