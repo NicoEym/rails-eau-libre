@@ -20,22 +20,24 @@
   </div>
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item d-md-none">
-    <div class="dropdown">
-      <i class="fas fa-bars dropdown-toggle white" data-toggle="dropdown" role="button"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+    <div>
+      <i id="burger-menu" class="fas fa-bars white" data-toggle="dropdown" role="button"></i>
+      <div class="side-menu">
+      <ul class="list-group list-group-flush">
         <% if user_signed_in? %>
-          <li><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
-          <li><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
-          <li><%= link_to raw('<i class="fas fa-tasks"></i> Gérer mes courses'),  swim_races_my_races_path %></li>
-          <li><%= link_to raw('Se déconnecter'),   destroy_user_session_path, :method => :delete, class: "navbar-wagon-item navbar-wagon-link white" %>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-tasks"></i> Gérer mes courses'),  swim_races_my_races_path %></li>
+          <li class="list-group-item"><%= link_to raw('Se déconnecter'), destroy_user_session_path, :method => :delete %>
             </li>
         <% else %>
-        <li><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
-          <li><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
-          <li><%= link_to "Se connecter", new_user_session_path %></li>
-          <li><%= link_to "S'inscrire", new_user_registration_path %></li>
+        <li class="list-group-item"><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
+          <li class="list-group-item"><%= link_to "Se connecter", new_user_session_path %></li>
+          <li class="list-group-item"><%= link_to "S'inscrire", new_user_registration_path %></li>
         <% end  %>
       </ul>
+      </div>
     </div>
   </div>
 </div>
