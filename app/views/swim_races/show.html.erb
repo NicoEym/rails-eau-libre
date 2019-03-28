@@ -11,7 +11,7 @@
               <p><strong>Ville: </strong><%= @swim_race.city_name %></p>
               <p><strong>Date de la course: </strong> <%= @swim_race.dates %></p>
               <p><strong>Description:</strong></p>
-              <p class="text-justify"><%= @swim_race.description %></p>
+              <p class="text-justify"><%= simple_format(@swim_race.description) %></p>
               <button class="btn btn-primary blue-nav"><%= link_to raw('<i class="fas fa-swimmer"></i> Je participe'), @swim_race.source_url, class: "white-color-link"%></button>
             </div>
             <% if !current_user.nil? %>
@@ -36,7 +36,7 @@
                   <p><strong>Prix: </strong><%= event.price %> euros</p>
                 </div>
                 <p><strong>Informations de l'épreuve:</strong></p>
-                <p class="text-justify"><%= event.comment %></p>
+                <p class="text-justify"><%= simple_format(event.comment) %></p>
                 <% if !current_user.nil? %>
                   <% if @swim_race.user_id == current_user.id %>
                     <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer'), swim_race_swim_event_path(@swim_race, event),
