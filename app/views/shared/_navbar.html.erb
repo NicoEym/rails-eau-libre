@@ -10,7 +10,7 @@
     <%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path, class: "navbar-wagon-item navbar-wagon-link white" %>
     <%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path, class: "navbar-wagon-item navbar-wagon-link white" %>
     <%= link_to raw('<i class="fas fa-tasks"></i> Gérer mes courses'),  swim_races_my_races_path, class: "navbar-wagon-item navbar-wagon-link white" %>
-    <%= link_to raw('Se déconnecter'),   destroy_user_session_path, :method => :delete, class: "navbar-wagon-item navbar-wagon-link white" %>
+    <%= link_to raw('<i class="fas fa-sign-out-alt"></i> Se déconnecter'),   destroy_user_session_path, :method => :delete, class: "navbar-wagon-item navbar-wagon-link white" %>
     <% else %>
       <%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path, class: "navbar-wagon-item navbar-wagon-link white" %>
       <%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path, class: "navbar-wagon-item navbar-wagon-link white" %>
@@ -25,16 +25,16 @@
       <div class="side-menu">
       <ul class="list-group list-group-flush">
         <% if user_signed_in? %>
-          <li class="list-group-item"><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
-          <li class="list-group-item"><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
-          <li class="list-group-item"><%= link_to raw('<i class="fas fa-tasks"></i> Gérer mes courses'),  swim_races_my_races_path %></li>
-          <li class="list-group-item"><%= link_to raw('Se déconnecter'), destroy_user_session_path, :method => :delete %>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path, class: "blue-font"%></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path, class: "blue-font"%></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-tasks"></i> Gérer mes courses'),  swim_races_my_races_path, class: "blue-font"%></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-sign-out-alt"></i> Se déconnecter'), destroy_user_session_path, :method => :delete, class: "blue-font" %>
             </li>
         <% else %>
-        <li class="list-group-item"><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path%></li>
-          <li class="list-group-item"><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path %></li>
-          <li class="list-group-item"><%= link_to "Se connecter", new_user_session_path %></li>
-          <li class="list-group-item"><%= link_to "S'inscrire", new_user_registration_path %></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-search"></i> Chercher une course'), swim_races_path, class: "blue-font"%></li>
+          <li class="list-group-item"><%= link_to raw('<i class="fas fa-swimmer"></i> Créer une nouvelle course'), new_swim_race_path, class: "blue-font" %></li>
+          <li class="list-group-item"><%= link_to "Se connecter", new_user_session_path, class: "blue-font" %></li>
+          <li class="list-group-item"><%= link_to "S'inscrire", new_user_registration_path, class: "blue-font" %></li>
         <% end  %>
       </ul>
       </div>
