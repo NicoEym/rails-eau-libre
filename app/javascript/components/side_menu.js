@@ -7,7 +7,6 @@ const sideMenu = () => {
 
   if (burgerMenu) {
     burgerMenu.addEventListener('click', (e) => {
-      console.log(darkSideNav);
       sideMenu.classList.toggle('large')
       body.classList.toggle('stop-scrolling')
       darkSideNav.classList.toggle('hidden')
