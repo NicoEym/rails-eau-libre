@@ -48,6 +48,12 @@ p {
   align-item: center;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-item: center;
+}
+
 .second-container {
   display: flex;
   justify-content: space-between;
@@ -73,7 +79,7 @@ table {
 
 .sidenav-overlay {
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 0;
     right: 0;
     height: 120vh;

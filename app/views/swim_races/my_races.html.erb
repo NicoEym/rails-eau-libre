@@ -2,56 +2,50 @@
   <div>
     <br>
     <h2 class="text-center">Mes courses:</h2>
+      <div class="row">
+        <% if @swim_races.nil? %>
+          <p>Vous n'avez pas de courses à ce jour.</p>
+        <% end %>
       <% @swim_races.each do |swim_race| %>
-        <div class="my-race">
-          <div class="race-events">
-          <h3><strong>Nom de la course: </strong><%= swim_race.name %></h3>
-          <p><strong>Ville: </strong><%= swim_race.city_name %></p>
-          <% m = swim_race.dates.strftime("%m").to_i %>
-          <% month = @months[m - 1] %>
-          <p><strong>Date de la course: </strong> <%= swim_race.dates.strftime("%d #{month} %Y") %></p>
-          <p><strong>Description:</strong></p>
-          <p><%= simple_format(swim_race.description) %></p>
-          <p><strong>Site internet de l'organisateur:</strong></p>
-          <p><%= link_to(swim_race.source_url, swim_race.source_url) %></p>
-          <div class="race-data">
-            <%= cl_image_tag(swim_race.photo, :class => "img_my_race") %>
-          </div>
-          <%= link_to raw('<i class="fas fa-edit"></i>Modifier cette course'), edit_swim_race_path(swim_race) %>
-          <%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer cette course'), swim_race_path(swim_race),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-
-        </div>
-          <div class="race-events">
-            <h4>Epreuves:</h4>
-            <% events = swim_race.swim_events %>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Distance</th>
-                        <th>Prix</th>
-                        <th>Informations</th>
-
-                    </tr>
-                </thead>
-              <tbody>
-                <% events.each do |event| %>
-                  <tr>
-                    <td><%= event.distance %> km</td>
-                    <td><%= event.price %> euros</td>
-                    <td><%= simple_format(event.comment) %></td>
-                    <td><%= link_to raw('<i class="far fa-trash-alt"></i> Supprimer'), swim_race_swim_event_path(swim_race, event),
-                            method: :delete,
-                            data: { confirm: "Are you sure?" } %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-            <%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter des épreuves'),  new_swim_race_swim_event_path(swim_race) %>
-            <%= link_to raw('<i class="fas fa-edit"></i> Modifier des épreuves'), edit_swim_race_swim_event_path(swim_race, events) %>
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <div class="card">
+            <% if swim_race.photo.file.nil? %>
+              <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dzxrdf9za/image/upload/v1553771363/placeholder.jpg');">
+              </div>
+            <% else %>
+              <div class="card-image my-race-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path swim_race.photo %>);">
+              </div>
+            <% end %>
+            <div class="card-infos my-race-infos">
+              <div class="card-details">
+                <% m = swim_race.dates.strftime("%m").to_i %>
+                <% month = @months[m - 1] %>
+                <div class="card-date"><%= swim_race.dates.strftime("%d #{month} %Y") %>
+                </div>
+                <div class="card-name">
+                  <h2><%= swim_race.name %>  </h2>
+                  <p><i class="fas fa-map-marker-alt"></i> <%= swim_race.city_name %></p>
+                </div>
+                <div class="card-events">
+                  <ul class="list-inline">
+                    <% swim_race.swim_events.each do |event| %>
+                      <li class="list-inline-item"><%= event.distance %> km</li>
+                    <% end %>
+                  </ul>
+                </div>
+                <% if swim_race.user_id == current_user.id %>
+                <div class="icons">
+                <%= link_to raw('<i class="fas fa-edit"></i>'), swim_race_path(swim_race.id), class: "icon-color" %>
+                <%= link_to raw('<i class="far fa-trash-alt"></i>'), swim_race_path(swim_race),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }, class: "icon-color" %>
+                </div>
+              <% end %>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
+    </div>
   </div>
 </div>
