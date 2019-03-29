@@ -11,7 +11,9 @@
         <% end %>
         <div class="card-infos">
           <div class="card-details">
-            <div class="card-date"><%= swim_race.dates %>
+            <% m = swim_race.dates.strftime("%m").to_i %>
+            <% month = @months[m - 1] %>
+            <div class="card-date"><%= swim_race.dates.strftime("%d #{month} %Y") %>
             </div>
             <div class="card-name">
               <h2><%= swim_race.name %>  </h2>

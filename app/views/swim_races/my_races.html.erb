@@ -7,7 +7,9 @@
           <div class="race-events">
           <h3><strong>Nom de la course: </strong><%= swim_race.name %></h3>
           <p><strong>Ville: </strong><%= swim_race.city_name %></p>
-          <p><strong>Date de la course: </strong> <%= swim_race.dates %></p>
+          <% m = swim_race.dates.strftime("%m").to_i %>
+          <% month = @months[m - 1] %>
+          <p><strong>Date de la course: </strong> <%= swim_race.dates.strftime("%d #{month} %Y") %></p>
           <p><strong>Description:</strong></p>
           <p><%= simple_format(swim_race.description) %></p>
           <p><strong>Site internet de l'organisateur:</strong></p>

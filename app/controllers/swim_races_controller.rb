@@ -32,15 +32,18 @@ class SwimRacesController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { swim_race: swim_race }),
       }
     end
+    @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
   def my_races
     @swim_races = SwimRace.where(user_id: current_user.id)
+    @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
   def show
     @swim_race = SwimRace.find(params[:id])
     @markers = [{ lat: @swim_race.latitude, lng: @swim_race.longitude }]
+    @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
   def edit
