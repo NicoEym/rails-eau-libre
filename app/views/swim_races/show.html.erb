@@ -28,7 +28,7 @@
 
                 <i id="delete-race-icon" class="far fa-trash-alt icon-color"></i>
                 <%= link_to "", swim_race_path(@swim_race),
-                    method: :delete, id: "delete-link", class: "hidden" %>
+                    method: :delete, id: "delete-race-link", class: "hidden" %>
                 </div>
               <% end %>
             <% end %>
@@ -51,7 +51,7 @@
 
                     <i id="delete-event-icon" class="far fa-trash-alt icon-color icon-position-show "></i>
                     <%= link_to "", swim_race_swim_event_path(@swim_race, event),
-                        method: :delete, class: "hidden" %>
+                        method: :delete, id: "delete-event-link", class: "hidden" %>
 
                   <% end %>
                 <% end %>

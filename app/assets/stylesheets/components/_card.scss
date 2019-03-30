@@ -59,6 +59,10 @@
   position: absolute;
   bottom: 0.5em;
   left: 0.5em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 90%;
 }
 
 .card-link {

@@ -22,9 +22,9 @@ initSweetalert('#delete-race-icon', {
   icon: "warning"
 }, (value) => {
   if (value === true) {
-    console.log("je supprime")
-  // const link = document.querySelector('#delete-link');
-  //   link.click();
+
+  const link = document.querySelector('#delete-race-link');
+    link.click();
   }
 });
 
@@ -34,9 +34,8 @@ initSweetalert('#delete-event-icon', {
   icon: "warning"
 }, (value) => {
   if (value===true) {
-    console.log("je supprime")
-  // const link = document.querySelector('#delete-link');
-  //   link.click();
+  const link = document.querySelector('#delete-event-link');
+    link.click();
   }
 });
 
