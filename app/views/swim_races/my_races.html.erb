@@ -2,10 +2,11 @@
   <div>
     <br>
     <h2 class="text-center">Mes courses:</h2>
+      <% if !@swim_races.any? %>
+        <p>Vous n'avez pas de courses à ce jour.</p>
+      <% end %>
       <div class="row">
-        <% if @swim_races.nil? %>
-          <p>Vous n'avez pas de courses à ce jour.</p>
-        <% end %>
+
       <% @swim_races.each do |swim_race| %>
         <div class="col-xs-12 col-md-10 offset-md-1">
           <div class="card">
@@ -36,9 +37,9 @@
                 <% if swim_race.user_id == current_user.id %>
                 <div class="icons">
                 <%= link_to raw('<i class="fas fa-edit"></i>'), swim_race_path(swim_race.id), class: "icon-color" %>
-                <%= link_to raw('<i class="far fa-trash-alt"></i>'), swim_race_path(swim_race),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" }, class: "icon-color" %>
+                <i id="delete-race-icon" class="far fa-trash-alt icon-color"></i>
+                <%= link_to "", swim_race_path(swim_race),
+                    method: :delete, id: "delete-link", class: "hidden" %>
                 </div>
               <% end %>
               </div>
