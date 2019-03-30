@@ -112,6 +112,9 @@
 
 .blue-font {
   color: #3e71e1;
+  &:active {
+    text-decoration: none;
+  }
 }
 
 
