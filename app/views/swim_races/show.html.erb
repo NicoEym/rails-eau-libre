@@ -39,6 +39,7 @@
             <% events = @swim_race.swim_events %>
             <% events.each do |event| %>
               <div class="event-box" >
+                <br>
                 <div class="space-between">
                   <p><strong>Distance: </strong><%= event.distance %> km</p>
                   <p><strong>Prix: </strong><%= event.price %> euros</p>
@@ -47,18 +48,20 @@
                 <p class="text-justify"><%= simple_format(event.comment) %></p>
                 <% if !current_user.nil? %>
                   <% if @swim_race.user_id == current_user.id %>
-                  <i id="delete-event-icon" class="far fa-trash-alt icon-color"></i>
+
+                    <i id="delete-event-icon" class="far fa-trash-alt icon-color icon-position-show "></i>
                     <%= link_to "", swim_race_swim_event_path(@swim_race, event),
                         method: :delete, class: "hidden" %>
+
                   <% end %>
                 <% end %>
               </div>
             <% end %>
             <% if !current_user.nil? %>
               <% if @swim_race.user_id == current_user.id %>
-                <button class="btn btn-secondary grey col-xs-12"><%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter des épreuves'),  new_swim_race_swim_event_path(@swim_race), class: "white-color-link" %>
+                <button class="btn btn-secondary grey col-xs-12" style="margin-bottom: 0.25em"><%= link_to raw('<i class="fas fa-plus-circle"></i> Ajouter des épreuves'),  new_swim_race_swim_event_path(@swim_race), class: "white-color-link" %>
                 </button>
-                <button class="btn btn-info col-xs-12"><%= link_to raw('<i class="fas fa-edit"></i> Modifier les épreuves'), edit_swim_race_swim_event_path(@swim_race), class: "white-color-link" %>
+                <button class="btn btn-info col-xs-12"><%= link_to raw('<i class="fas fa-edit"></i>Modifier les épreuves'), edit_swim_race_swim_event_path(@swim_race), class: "white-color-link" %>
                 </button>
               <% end %>
             <% end %>
