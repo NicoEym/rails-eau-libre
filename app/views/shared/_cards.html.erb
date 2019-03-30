@@ -17,12 +17,14 @@
             </div>
             <div class="card-name">
               <h2><%= swim_race.name %>  </h2>
-              <p><i class="fas fa-map-marker-alt"></i> <%= swim_race.city_name %></p>
+              <% city = Geocoder.search(swim_race.city_name).first.city %>
+              <p><i class="fas fa-map-marker-alt"></i> <%= city %></p>
             </div>
             <div class="card-events">
-              <ul class="list-inline">
+              <h6 style="margin-bottom: 0px;"><strong><%= swim_race.swim_events.count %> épreuves:</strong></h6>
+              <ul class="list-inline" style="display: inline">
                 <% swim_race.swim_events.each do |event| %>
-                  <li class="list-inline-item"><%= event.distance %> km</li>
+                  <li class="list-inline-item" style="display: inline; text-overflow: ellipsis; overflow: hidden;"><%= event.distance %> km</li>
                 <% end %>
               </ul>
             </div>
