@@ -1,7 +1,7 @@
 const sideMenu = () => {
   const burgerMenu = document.getElementById('burger-menu');
   const sideMenu = document.querySelector('.side-menu');
-  const darkSideNav = document.querySelector('.hidden');
+  const darkSideNav = document.querySelector('.sidenav-overlay');
   const body = document.querySelector('body');
 
 
