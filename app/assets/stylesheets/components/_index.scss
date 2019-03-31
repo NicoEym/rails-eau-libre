@@ -12,6 +12,9 @@ body {
   background-color: #F7F7F7;
 }
 
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
 
 h1 {
   font-family: 'Roboto', sans-serif;
@@ -68,9 +71,7 @@ p {
   padding: 0.3em;
 }
 
-table {
-  width: 100%;
-}
+
 
 .stop-scrolling {
   height: 100%;
