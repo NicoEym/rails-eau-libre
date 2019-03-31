@@ -21,8 +21,7 @@ class SwimRacesController < ApplicationController
       @city_name = @search["city_name"]
       if @city_name != ""
         coordinates = Geocoder.search(@city_name).first.coordinates
-        @swim_races = SwimRace.near(coordinates, 200)
-        @swim_races = @swim_races.where('dates >= ?', Date.today).order(:dates)
+        @swim_races = @swim_races.near(coordinates, 200).order(:dates)
       end
     end
     @markers = @swim_races.map do |swim_race|
