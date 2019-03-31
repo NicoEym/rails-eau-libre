@@ -14,13 +14,11 @@
               <p><strong>Date de la course: </strong> <%= @swim_race.dates.strftime("%d #{month} %Y") %></p>
               <p><strong>Description:</strong></p>
               <p class="text-justify"><%= simple_format(@swim_race.description) %></p>
-              <% if !current_user.nil? %>
-                <% if @swim_race.user_id != current_user.id %>
+                <% if current_user.nil? || @swim_race.user_id != current_user.id %>
                   <button class="btn btn-primary blue-nav col-xs-12"><%= link_to raw('<i class="fas fa-swimmer"></i> Je participe'), @swim_race.source_url, class: "white-color-link"%></button>
                 <% else %>
                   <button class="btn btn-info col-xs-12"> <%= link_to raw('<i class="fas fa-edit"></i> Modifier la course'), edit_swim_race_path(@swim_race), class: "white-color-link" %></button>
                 <% end %>
-              <% end %>
             </div>
             <% if !current_user.nil? %>
               <% if @swim_race.user_id == current_user.id %>
