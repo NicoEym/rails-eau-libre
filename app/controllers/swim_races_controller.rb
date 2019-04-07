@@ -58,7 +58,7 @@ class SwimRacesController < ApplicationController
   def destroy
     @swim_race = SwimRace.find(params[:id])
     @swim_race.destroy
-    redirect_to swim_races_path
+    redirect_to swim_races_my_races_path
   end
 
   private
