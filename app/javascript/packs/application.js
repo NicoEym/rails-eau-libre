@@ -4,7 +4,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { sideMenu } from '../components/side_menu';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { addDistance, submitForms } from '../components/add_distance';
-import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert, deleteIndex } from '../plugins/init_sweetalert';
 
 
 initMapbox();
@@ -13,18 +13,14 @@ addDistance();
 submitForms();
 sideMenu();
 
-
-
-
 initSweetalert('#delete-race-icon', {
  title: "Êtes vous sûr(e)?",
   text: "Vous êtes sur le point de supprimer définitivement cette course.",
   icon: "warning"
 }, (value) => {
   if (value === true) {
-
-  const link = document.querySelector('#delete-race-link');
-    link.click();
+  const links = document.querySelectorAll('#delete-race-link');
+  links[deleteIndex].click();
   }
 });
 
@@ -34,8 +30,8 @@ initSweetalert('#delete-event-icon', {
   icon: "warning"
 }, (value) => {
   if (value===true) {
-  const link = document.querySelector('#delete-event-link');
-    link.click();
+  const links = document.querySelectorAll('#delete-event-link');
+    links[deleteIndex].click();
   }
 });
 
