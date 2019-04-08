@@ -35,7 +35,7 @@ class SwimRacesController < ApplicationController
   end
 
   def my_races
-    @swim_races = SwimRace.where(user_id: current_user.id).order(:dates)
+    @swim_races = SwimRace.where(user_id: current_user.id)
     @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
