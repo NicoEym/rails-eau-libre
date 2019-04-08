@@ -8,6 +8,7 @@
       <div class="row">
 
       <% @swim_races.each do |swim_race| %>
+
         <div class="col-xs-12 col-md-10 offset-md-1">
           <div class="card">
             <% if swim_race.photo.file.nil? %>
@@ -19,10 +20,15 @@
             <% end %>
             <div class="card-infos my-race-infos">
               <div class="card-details">
-                <% m = swim_race.dates.strftime("%m").to_i %>
-                <% month = @months[m - 1] %>
-                <div class="card-date"><%= swim_race.dates.strftime("%d #{month} %Y") %>
-                </div>
+                <% if !swim_race.dates.nil?  %>
+                  <% m = swim_race.dates.strftime("%m").to_i %>
+                  <% month = @months[m - 1] %>
+                  <div class="card-date"><%= swim_race.dates.strftime("%d #{month} %Y") %>
+                    </div>
+                  <% else %>
+                    <div class="card-date"><p>pas de date renseignée</p>
+                    </div>
+                <% end  %>
                 <div class="card-name">
                   <h2><%= swim_race.name %>  </h2>
                   <% city = Geocoder.search(swim_race.city_name).first.city %>
