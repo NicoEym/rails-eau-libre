@@ -9,8 +9,11 @@ class SwimRacesController < ApplicationController
   def create
     @swim_race = SwimRace.new(swim_race_params)
     @swim_race.user_id = current_user.id
-    @swim_race.save!
-    redirect_to new_swim_race_swim_event_path(@swim_race)
+    if @swim_race.save
+      redirect_to new_swim_race_swim_event_path(@swim_race)
+    else
+      render :new
+    end
   end
 
   def index
@@ -35,7 +38,7 @@ class SwimRacesController < ApplicationController
   end
 
   def my_races
-    @swim_races = SwimRace.where(user_id: current_user.id)
+    @swim_races = SwimRace.where(user_id: current_user.id).order(:dates)
     @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
