@@ -28,6 +28,13 @@ p {
   font-family: 'Roboto', sans-serif;
 }
 
+.white-text {
+  color: rgb(255, 255, 255);
+  &:focus {
+      color: rgb(255, 255, 255);
+    };
+}
+
 #map {
   width:100%;
   height:70vh;
