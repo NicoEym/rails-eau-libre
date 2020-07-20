@@ -26,6 +26,10 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <% unless current_page?(root_path) %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
     <div id="opac-background" class="sidenav-overlay hidden"></div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
