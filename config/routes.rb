@@ -7,3 +7,4 @@ Rails.application.routes.draw do
     resources :swim_events, only: [:new, :create, :edit, :update, :destroy]
   end
 end
+

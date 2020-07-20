@@ -1,13 +1,16 @@
 require 'date'
 class SwimRacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :set_swim_race, only: [:show, :edit, :update, :destroy]
 
   def new
     @swim_race = SwimRace.new
+    authorize @swim_race
   end
 
   def create
     @swim_race = SwimRace.new(swim_race_params)
+    authorize @swim_race
     @swim_race.user_id = current_user.id
     if @swim_race.save
       redirect_to new_swim_race_swim_event_path(@swim_race)
@@ -43,23 +46,19 @@ class SwimRacesController < ApplicationController
   end
 
   def show
-    @swim_race = SwimRace.find(params[:id])
     @markers = [{ lat: @swim_race.latitude, lng: @swim_race.longitude }]
     @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
   def edit
-    @swim_race = SwimRace.find(params[:id])
   end
 
   def update
-    @swim_race = SwimRace.find(params[:id])
     @swim_race.update(swim_race_params)
     redirect_to edit_swim_race_swim_event_path(@swim_race)
   end
 
   def destroy
-    @swim_race = SwimRace.find(params[:id])
     @swim_race.destroy
     redirect_to swim_races_my_races_path
   end
@@ -68,5 +67,10 @@ class SwimRacesController < ApplicationController
 
   def swim_race_params
     params.require(:swim_race).permit(:name, :city_name, :description, :dates, :source_url, :photo, :swim_events)
+  end
+
+  def set_swim_race
+    @swim_race = SwimRace.find(params[:id])
+    authorize @swim_race
   end
 end
