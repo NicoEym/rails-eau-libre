@@ -9,6 +9,10 @@ class SwimRacePolicy < ApplicationPolicy
     return true
   end
 
+   def my_races?
+    true
+  end
+
   def show?
     true
   end
