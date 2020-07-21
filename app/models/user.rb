@@ -4,4 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :swim_races
+
+
+
+  def is_admin?
+    user.admin == true
+  end
 end

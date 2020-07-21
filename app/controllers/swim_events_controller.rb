@@ -4,6 +4,7 @@ class SwimEventsController < ApplicationController
   def new
     @swim_race = SwimRace.find(params[:swim_race_id])
     @swim_event = SwimEvent.new
+    @swim_event.swim_race = @swim_race
     authorize @swim_event
   end
 

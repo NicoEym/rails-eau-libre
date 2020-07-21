@@ -1,6 +1,7 @@
 require 'date'
 class SwimRacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_after_action :verify_policy_scoped, :only => :index
   before_action :set_swim_race, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -41,7 +42,8 @@ class SwimRacesController < ApplicationController
   end
 
   def my_races
-    @swim_races = SwimRace.where(user_id: current_user.id).order(:dates)
+    @swim_races = policy_scope(SwimRace).order(:dates)
+    authorize @swim_races
     @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
 
