@@ -2,7 +2,7 @@ require 'date'
 class SwimRacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   skip_after_action :verify_policy_scoped, :only => :index
-  before_action :set_swim_race, only: [:show, :edit, :update, :destroy]
+  before_action :set_swim_race, only: [:edit, :update, :destroy]
 
   def new
     @swim_race = SwimRace.new
@@ -48,6 +48,8 @@ class SwimRacesController < ApplicationController
   end
 
   def show
+    @swim_race = SwimRace.find(params[:id])
+    skip_authorization
     @markers = [{ lat: @swim_race.latitude, lng: @swim_race.longitude }]
     @months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
   end
