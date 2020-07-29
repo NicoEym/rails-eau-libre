@@ -14,7 +14,7 @@ class SwimRacesController < ApplicationController
     authorize @swim_race
     @swim_race.user_id = current_user.id
     if @swim_race.save
-      redirect_to new_swim_race_swim_event_path(@swim_race)
+      redirect_to swim_races_path(@swim_race)
     else
       render :new
     end
