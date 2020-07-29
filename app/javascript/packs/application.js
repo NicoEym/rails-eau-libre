@@ -9,8 +9,8 @@ import { initSweetalert, deleteIndex } from '../plugins/init_sweetalert';
 
 initMapbox();
 initAutocomplete();
-addDistance();
-submitForms();
+// addDistance();
+// submitForms();
 sideMenu();
 
 initSweetalert('#delete-race-icon', {

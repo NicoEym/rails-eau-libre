@@ -1,32 +1,13 @@
 <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1534289692684-c02577d5560d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
-  <br>
-  <br>
-  <div class="col-xs-12 col-md-8 offset-md-2">
-    <div style="background-color: rgba(255, 255, 255, 0.7); border-radius: 0.25em; padding:1em; margin-bottom: 1em;">
-      <h2>Modifier les épreuves à votre course "<%= @swim_race.name %>"</h2>
+    <br>
+    <br>
+    <div class="col-xs-12 col-md-8 offset-md-2" >
+      <div style="background-color: rgba(255, 255, 255, 0.7); border-radius: 0.25em; padding:1em;">
+        <h2>Modifier cette épreuve de votre course "<%= @swim_race.name %>"</h2>
         <br>
-      <% if @swim_events.length == 0  %>
-          <%= render 'shared/formevents', swim_race: @swim_race %>
-      <% else  %>
-        <div class="scroll-overflow-event" style="border-radius: 0.25em;">
-          <% @swim_events.each do |swim_event| %>
-            <%= simple_form_for [@swim_race, swim_event], remote: true, html: { id: :form_new_event}  do |f| %>
-              <h5>Epreuve:</h5>
-              <div class="form-distance" >
-                <div id="distance-prix">
-                  <%= f.input :distance, label: 'Distance (km):' %>
-
-                </div>
-                <div id="more-infos">
-                  <%= f.input :comment, label: 'Equipement:', placeholder: "Ajouter ici les informations concernant les horaires, l'équipement autorisé..."%>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
+        <%= render 'shared/formevents'%>
+      </div>
+      <br>
     </div>
-    <button id="submit-form" class="btn btn-lg btn-primary blue-nav"><i class="fas fa-check"></i> Valider ces épreuves</button>
-  </div>
+  <br>
 </div>
-
