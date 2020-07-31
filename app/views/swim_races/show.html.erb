@@ -16,20 +16,12 @@
               <p class="text-justify"><%= simple_format(@swim_race.description) %></p>
                 <% if current_user.nil? || @swim_race.user_id == current_user.id %>
                    <button class="btn btn-info col-xs-12"> <%= link_to raw('<i class="fas fa-edit"></i> Modifier la course'), edit_swim_race_path(@swim_race), class: "white-color-link" %></button>
+                   <button class="btn btn-danger col-xs-12"> <%= link_to raw('<i class="fas fa-edit"></i> Supprimer la course'), swim_race_path(@swim_race), method: :delete, class: "white-color-link" %></button>
                 <% else %>
                   <button class="btn btn-primary blue-nav col-xs-12"><%= link_to raw('<i class="fas fa-swimmer"></i> Je participe'), @swim_race.source_url, class: "white-color-link"%></button>
                 <% end %>
             </div>
-            <% if !current_user.nil? %>
-              <% if @swim_race.user_id == current_user.id %>
-                <div class="icons">
 
-                <i id="delete-race-icon" class="fas fa-times-circle icon-color"></i>
-                <%= link_to "", swim_race_path(@swim_race),
-                    method: :delete, id: "delete-race-link", class: "hidden" %>
-                </div>
-              <% end %>
-            <% end %>
           </div>
           <br>
           <div class="swim-events">

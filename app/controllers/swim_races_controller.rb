@@ -59,7 +59,7 @@ class SwimRacesController < ApplicationController
 
   def update
     @swim_race.update(swim_race_params)
-    redirect_to edit_swim_race_swim_event_path(@swim_race)
+    redirect_to swim_race_path(@swim_race)
   end
 
   def destroy

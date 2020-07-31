@@ -10,6 +10,7 @@
       <% @swim_races.each do |swim_race| %>
 
         <div class="col-xs-12 col-md-10 offset-md-1">
+          <%= link_to("", swim_race_path(swim_race.id), class:"card-link")  %>
           <div class="card">
             <% if swim_race.photo.file.nil? %>
               <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dzxrdf9za/image/upload/v1553771363/placeholder.jpg');">
@@ -41,14 +42,6 @@
                     <% end %>
                   </ul>
                 </div>
-                <% if swim_race.user_id == current_user.id %>
-                <div class="icons">
-                <%= link_to raw('<i class="fas fa-edit"></i>'), swim_race_path(swim_race.id), class: "icon-color" %>
-                <i id="delete-race-icon" class="fas fa-times-circle icon-color"></i>
-                <%= link_to "", swim_race_path(swim_race),
-                    method: :delete, id: "delete-race-link", class: "hidden" %>
-                </div>
-              <% end %>
               </div>
             </div>
           </div>
