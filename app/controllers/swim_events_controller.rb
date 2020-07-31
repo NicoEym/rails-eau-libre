@@ -11,8 +11,10 @@ class SwimEventsController < ApplicationController
   def create
     @swim_event = SwimEvent.new(swim_event_params)
     @swim_event.swim_race = SwimRace.find(params[:swim_race_id])
+    puts @swim_event
     authorize @swim_event
     if @swim_event.save
+      puts "toto"
       redirect_to swim_race_path(@swim_event.swim_race)
     else
       render :new
