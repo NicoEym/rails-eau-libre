@@ -19,7 +19,7 @@ gem 'webpacker'
 gem 'geocoder'
 gem 'algoliasearch-rails'
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'pundit'
 
 group :development do
